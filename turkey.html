@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>JQVMap - Turkey Map</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <link href="./css/jqvmap.css" media="screen" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+
+
+    <!-- width: 1052.3622px;  height: 744.09448px;-->
+<div id="vmap" style="width: 3840; height: 2160px;"></div>
+<script type="text/javascript" src="./js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="./js/jquery.vmap.js"></script>
+<script type="text/javascript" src="./js/jquery.vmap.turkey.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/data.js" charset="utf-8"></script>
+<script>
+    jQuery(document).ready(function () {
+        console.log(cities);
+        jQuery('#vmap').vectorMap({
+            map: 'turkey',
+            onRegionClick: function (element, code, region) {
+                // var message = 'You clicked "'+ region + '" which has the code: '+ code.toUpperCase();
+                let city = cities[code];
+                let el = element.currentTarget.attributes[0];
+                console.log(el.value);
+                //document.getElementById(el.value).innerHTML = `${region}`;
+            }
+        });
+    });
+</script>
+</body>
+</html>
